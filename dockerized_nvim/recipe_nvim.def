@@ -1,0 +1,20 @@
+Bootstrap: docker 
+From: alpine
+
+%environment
+
+    export LC_ALL=C
+    export XDG_CONFIG_HOME='~/.config'
+
+%post
+    apk update && apk add --no-cache \
+        neovim \
+        lua \
+        git \
+        curl \
+        build-base 
+
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+
