@@ -13,20 +13,14 @@ return require('packer').startup(function(use)
   requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
-        'rose-pine/neovim',  
-        as = 'rose-pine',
-        config = function() 
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
-
     use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     }
+
+    use('folke/tokyonight.nvim');
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
@@ -59,19 +53,5 @@ return require('packer').startup(function(use)
     }
     use ('laytan/cloak.nvim')
 
-    use {
-      'chipsenkbeil/distant.nvim',
-      branch = 'v0.2',
-      config = function()
-        require('distant').setup {
-          -- Applies Chip's personal settings to every machine you connect to
-          --
-          -- 1. Ensures that distant servers terminate with no connections
-          -- 2. Provides navigation bindings for remote directories
-          -- 3. Provides keybinding to jump into a remote file's parent directory
-          ['*'] = require('distant.settings').chip_default()
-        }
-      end
-    }
 
 end) 
