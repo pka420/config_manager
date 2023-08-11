@@ -22,6 +22,8 @@ return require('packer').startup(function(use)
 
     use('folke/tokyonight.nvim');
 
+    use('lukas-reineke/indent-blankline.nvim')
+
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
@@ -47,11 +49,18 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lua'},
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
       {'rafamadriz/friendly-snippets'},
     }
     }
     use ('laytan/cloak.nvim')
 
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.0.0", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp",
+        dependencies = { "rafamadriz/friendly-snippets" }
+    })
 
-end) 
+end)
