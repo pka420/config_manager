@@ -21,7 +21,10 @@ return require('packer').startup(function(use)
     }
 
     use('folke/tokyonight.nvim');
-
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use('lukas-reineke/indent-blankline.nvim')
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -62,5 +65,8 @@ return require('packer').startup(function(use)
         run = "make install_jsregexp",
         dependencies = { "rafamadriz/friendly-snippets" }
     })
+
+    use({'junegunn/fzf'})
+    use({'xiyaowong/transparent.nvim'})
 
 end)

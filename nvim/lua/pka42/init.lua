@@ -1,7 +1,6 @@
 require("pka42.remap")
 require("pka42.set")
 vim.cmd[[ colorscheme tokyonight ]]
-
 function reload_config()
     for name,_ in pairs(package.loaded) do
         if name:match('^pka42') then
@@ -11,6 +10,7 @@ function reload_config()
 
     require('pka42.remap')
     require("pka42.set")
+    vim.cmd[[ colorscheme tokyonight ]]
 
     -- Reload after/ directory
     local glob = vim.fn.stdpath('config') .. '/after/**/*.lua'
