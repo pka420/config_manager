@@ -1,5 +1,5 @@
 Bootstrap: docker 
-From: alpine
+From: ubuntu:latest
 
 %environment
 
@@ -7,12 +7,18 @@ From: alpine
     export XDG_CONFIG_HOME='~/.config'
 
 %post
-    apk update && apk add --no-cache \
+    apt-get update 
+    apt install -y software-properties-common
+    add-apt-repository ppa:neovim-ppa/stable
+    apt-get update
+    apt-get install -y \
+        vim \
         neovim \
-        lua \
+        lua5.4 \
+        luajit \
         git \
         curl \
-        build-base 
+        build-essential
 
     git clone --depth 1 https://github.com/wbthomason/packer.nvim \
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
