@@ -9,9 +9,9 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-  requires = { {'nvim-lua/plenary.nvim'} }
-	}
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
     use {
         'numToStr/Comment.nvim',
@@ -56,15 +56,6 @@ return require('packer').startup(function(use)
     }
     }
     use ('laytan/cloak.nvim')
-
-    use({
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        tag = "v2.0.0", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!:).
-        run = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" }
-    })
 
     use({'junegunn/fzf'})
     use({'xiyaowong/transparent.nvim'})

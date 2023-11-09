@@ -1,0 +1,26 @@
+Bootstrap: docker 
+From: ubuntu:latest
+
+%environment
+
+    export LC_ALL=C
+    export XDG_CONFIG_HOME='~/.config'
+
+%post
+    apt-get update 
+    apt install -y software-properties-common
+    add-apt-repository ppa:neovim-ppa/stable
+    apt-get update
+    apt-get install -y \
+        vim \
+        neovim \
+        lua5.4 \
+        luajit \
+        git \
+        curl \
+        build-essential
+
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+
