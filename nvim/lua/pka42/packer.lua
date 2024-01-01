@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.4',
+      'nvim-telescope/telescope.nvim', tag = '0.1.5',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -20,7 +20,8 @@ return require('packer').startup(function(use)
         end
     }
 
-    use('folke/tokyonight.nvim');
+    --use('folke/tokyonight.nvim');
+    use('rebelot/kanagawa.nvim');
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -58,6 +59,5 @@ return require('packer').startup(function(use)
     use ('laytan/cloak.nvim')
 
     use({'junegunn/fzf'})
-    use({'xiyaowong/transparent.nvim'})
 
 end)
