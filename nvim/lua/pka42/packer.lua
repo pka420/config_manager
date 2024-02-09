@@ -19,9 +19,18 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-
-    --use('folke/tokyonight.nvim');
+    use { "norcalli/nvim-colorizer.lua",
+        config = function()
+            require('colorizer').setup()
+        end
+    }
+    use('folke/tokyonight.nvim');
     use('rebelot/kanagawa.nvim');
+
+    use{ "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
+    }
+
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -30,14 +39,15 @@ return require('packer').startup(function(use)
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
-    use('theprimeagen/harpoon')
+    use('nvim-lua/plenary.nvim')
+    use{'thePrimeagen/harpoon', branch='master'}
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use("nvim-treesitter/nvim-treesitter-context");
     use("folke/zen-mode.nvim") 
     use {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
