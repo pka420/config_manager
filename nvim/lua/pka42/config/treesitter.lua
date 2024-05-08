@@ -29,8 +29,12 @@ return {
             -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
             -- the name of the parser)
             -- list of language that will be disabled
-            additional_vim_regex_highlighting = false,
-          }
+            additional_vim_regex_highlighting = true, 
+          },
+          indent = {
+                enable = true,
+                disable = {'python', 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'go'},
+          },
       }
     end
 }

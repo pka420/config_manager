@@ -11,4 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("pka42.config")
+require("lazy").setup({
+    spec = "pka42.config",  
+    change_detection = { notify = false }
+})
