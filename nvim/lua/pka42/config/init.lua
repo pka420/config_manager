@@ -8,12 +8,17 @@ return {
     },
     "junegunn/fzf",
     {
-        "github/copilot.vim",
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     },
-
-
+    {
+        'gabrielpoca/replacer.nvim',
+        opts = {rename_files = false},
+        keys = {
+            {
+                '<leader>h',
+                function() require('replacer').run() end,
+            }
+        }
+    }
 }
