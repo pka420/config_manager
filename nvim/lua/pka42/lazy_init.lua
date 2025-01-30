@@ -13,5 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = "pka42.config",  
+
     change_detection = { notify = false }
 })
+
+
