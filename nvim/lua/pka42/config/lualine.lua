@@ -1,9 +1,9 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { 
-        "nvim-tree/nvim-web-devicons", 
-        config = function() 
-            opt = true 
+        "nvim-tree/nvim-web-devicons",
+        config = function()
+            opt = true
         end
     },
     config = function() 
@@ -27,10 +27,10 @@ return {
             }
           },
           sections = {
-            lualine_a = {'mode'},
+            lualine_a = {'fileformat'},
             lualine_b = {'branch', 'diff', 'diagnostics'},
             lualine_c = {'filename'},
-            lualine_x = {'encoding', 'fileformat', 'filetype'},
+            lualine_x = {'encoding', 'fileformat'},
             lualine_y = {'progress'},
             lualine_z = {'location'}
           },
