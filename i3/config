@@ -10,9 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $fm HDMI-A-0
-set $sm DisplayPort-2
-
+set $fm DisplayPort-2
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -41,7 +39,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec tabby
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 # bindsym $mod+space exec "/home/theprimeagen/dotfiles/awesome-streamerrc/ThePrimeagen/tmux2"
@@ -68,7 +66,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+{ exec --no-startup-id flameshot
+bindsym $mod+_ exec --no-startup-id flameshot
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -106,15 +104,15 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # define workspace to monitors.
-workspace 1 output HDMI-A-0
-workspace 2 output HDMI-A-0
-workspace 3 output HDMI-A-0
-workspace 4 output HDMI-A-0
-workspace 5 output $sm
-workspace 6 output $sm
-workspace 7 output $sm
-workspace 8 output $sm
-workspace 9 output $sm
+workspace 1 output $fm
+workspace 2 output $fm
+workspace 3 output $fm
+workspace 4 output $fm 
+workspace 5 output $fm
+workspace 6 output $fm
+workspace 7 output $fm
+workspace 8 output $fm
+workspace 9 output $fm
 
 # # switch to workspace
 bindsym $mod+1 workspace 1
@@ -229,7 +227,7 @@ bar {
 # CUSTOM KEYS START
 # ------------------------------------------
 exec --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-fill '/home/lucifer/anime/girl-gun.png'
+exec_always --no-startup-id feh --bg-fill '/usr/share/backgrounds/pop/blue-proposal.jpg'
 
 bindsym $mod+Shift+s exec --no-startup-id ~/dotfiles/bin/monitor
 bindsym $mod+Shift+n exec --no-startup-id ~/dotfiles/bin/resolution

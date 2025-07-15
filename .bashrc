@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 . "$HOME/.cargo/env"
 export XDG_CONFIG_DIR="~/.config"
-export PATH=$PATH:~/.local/bin:/usr/local/go/bin:~/go/bin
+export PATH=$PATH:~/.local/bin:/usr/local/go/bin:~/go/bin:~/.zig/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -160,6 +160,7 @@ export SSH_AUTH_SOCK
 alias bt-jbl="bluetoothctl connect 2C:FD:B4:34:CE:AD"
 alias bt-logitech="bluetoothctl connect 40:58:99:30:21:74"
 alias bt-buds="bluetoothctl connect 2C:BE:EB:9F:CA:2B"
+alias btr="bluetoothctl power off && bluetoothctl power on"
 export CALCURSE_EDITOR=nvim
 export PYTHON_EXECUTABLE="/usr/bin/python3.10"
 
@@ -171,3 +172,26 @@ alias xcp='xclip -selection clipboard'
 
 
 alias tlaunch="sudo java -jar /home/lucifer/scratch/TLauncher.jar"
+export WINEPREFIX=~/.wineprefixes/myapp
+
+alias staging_wimars="ssh -o "IdentitiesOnly=yes" -i ~/.ssh/pka42-staging-wimars-key staging-wimars"
+alias open_rgb="exec /home/lucifer/.local/bin/OpenRGB_0.9_x86_64_b5f46e3.AppImage"
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export CREDENTIALS_FILE_PATH="$HOME/.config/i3/client_secret_429794067442-0h25fgagu8jr8p1e1hvuh99d7npl3osk.apps.googleusercontent.com.json"
+
+# pnpm
+export PNPM_HOME="/home/lucifer/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+
+alias wchange="bash ~/.config/terminal_wallpaper_change.sh"
+source ~/go/bin/gf-completion.bash
+alias remotepc-proxy='proxychains4 /usr/bin/remotepcviewer'
+
