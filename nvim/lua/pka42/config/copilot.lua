@@ -4,8 +4,13 @@ return {
   event = "InsertEnter",
   config = function()
     require("copilot").setup({
-      suggestion = { enabled = true, auto_trigger = true },
-      panel = { enabled = true },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<S-Tab>",  -- Bind Shift+Tab to accept suggestions
+        },
+      },
     })
   end,
 }

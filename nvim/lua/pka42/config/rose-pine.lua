@@ -1,9 +1,11 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    config = function()
-        vim.g.rose_pine_disable_background = true
-        vim.g.rose_pine_enable_italics = true
-        vim.cmd[[colorscheme rose-pine]]
-    end
+  "rose-pine/neovim",
+  name = "rose-pine",
+  config = function()
+    require("rose-pine").setup({
+      disable_background = false, -- Enables transparency
+    })
+    vim.cmd("colorscheme rose-pine")
+  end,
 }
+
