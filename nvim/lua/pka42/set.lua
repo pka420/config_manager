@@ -31,7 +31,6 @@ vim.opt.updatetime=50
 vim.opt.colorcolumn="80"
 
 
-vim.g.clipboard = 'osc52'
 vim.opt.foldmethod = "manual"
 vim.opt.foldenable = false
 

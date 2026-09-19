@@ -14,7 +14,7 @@ return {
         { 'saadparwaiz1/cmp_luasnip' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-nvim-lua' },
-        { 'L3MON4D3/LuaSnip' },
+        { 'L3MON4D3/LuaSnip', version = 'v2.5.0' },
 
         -- Fidget (LSP progress UI)
         { "j-hui/fidget.nvim" },
@@ -23,28 +23,14 @@ return {
         { 'rafamadriz/friendly-snippets' },
     },
     config = function()
+        vim.g.lsp_zero_extend_lspconfig = false
         local lsp_zero = require('lsp-zero')
-        local lspconfig = require('lspconfig')
 
-        -- Setup Mason
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls",
-                "gopls",
-                "bashls",
-            },
-            handlers = {
-                function(server_name)
-                    lspconfig[server_name].setup({
-                        capabilities = lsp_zero.capabilities,
-                    })
-                end,
-            },
+        vim.lsp.config('*', {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
         })
 
-        -- Lua language server special configuration
-        lspconfig.lua_ls.setup({
+        vim.lsp.config('lua_ls', {
             settings = {
                 Lua = {
                     diagnostics = {
@@ -54,24 +40,25 @@ return {
             }
         })
 
-        -- Fidget (LSP loading UI)
+        require("mason").setup()
+        require("mason-lspconfig").setup()
+
         require("fidget").setup()
 
-        -- Setup nvim-cmp
         local cmp = require('cmp')
         local luasnip = require("luasnip")
 
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    luasnip.lsp_expand(args.body) -- Use LuaSnip instead of `vsnip#anonymous`
+                    luasnip.lsp_expand(args.body)
                 end,
             },
             mapping = {
                 ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-y>'] = cmp.config.disable, -- Disable default <C-y> mapping
+                ['<C-y>'] = cmp.config.disable,
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -84,7 +71,6 @@ return {
             }),
         })
 
-        -- Set LSP diagnostic signs
         lsp_zero.set_sign_icons({
             error = "",
             warn = "",
@@ -92,13 +78,8 @@ return {
             info = ""
         })
 
-        -- Apply LSP settings
-        lsp_zero.setup()
-
-        -- Enable virtual text diagnostics
         vim.diagnostic.config({
             virtual_text = true
         })
     end
 }
-
