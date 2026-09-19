@@ -14,8 +14,10 @@ vim.opt.wrap=false
 
 vim.opt.swapfile=false
 vim.opt.backup=false
-vim.opt.undodir=os.getenv("HOME").."/.vim/undodir"
-vim.opt.undofile=true
+local undodir = vim.fn.stdpath("state") .. "/undo"
+vim.fn.mkdir(undodir, "p")
+vim.opt.undodir = undodir
+vim.opt.undofile = true
 
 vim.opt.hlsearch=true
 vim.opt.incsearch=true
